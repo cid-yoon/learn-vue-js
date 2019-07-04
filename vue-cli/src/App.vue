@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header>app</app-header>
+    <app-header v-on:renew="renewEvent" v-bind:propsdata="str">app</app-header>
   </div>
 </template>
 
@@ -12,11 +12,16 @@ import AppHeader from "./components/AppHeader.vue";
 export default {
   data: function() {
     return {
-      str: "hi"
+      str: "my header"
     };
   },
   components: {
     "app-header": AppHeader
+  },
+  methods: {
+    renewEvent: function() {
+      this.str = "change string";
+    }
   }
 };
 </script>
